@@ -38,7 +38,7 @@ function App() {
       <Header />
       <h1>Current Date</h1>
       <img src={plusIcon} className="plus-icon" alt="Add new task icon" />
-      <WordForm />              {/* Take in user input */}      
+      <WordForm addTask={addTask}/>              {/* Take in user input */}      
       <TaskList tasks={tasks}/> {/* Generate task list */}
     </>
   )

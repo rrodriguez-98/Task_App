@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function WordForm() {
+export default function WordForm({addTask}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
