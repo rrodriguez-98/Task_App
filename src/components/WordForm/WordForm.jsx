@@ -12,6 +12,7 @@ export default function WordForm() {
     newTaskField.value = '';
 
     alert(`New Task: ${newTaskValue}`);
+    addTask(newTaskValue);
   } 
 
 
