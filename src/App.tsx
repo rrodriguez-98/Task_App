@@ -32,6 +32,12 @@ function App() {
     setTasks(updatedTaskList);
   }
 
+  //Remove a Task
+  const deleteTask = (taskTitle) => {
+    const updatedTaskList = tasks.filter(task => task.taskTitle !== taskTitle);
+    setTasks(updatedTaskList);
+  }
+
   return (
     //Render Contents
     <>
@@ -39,7 +45,7 @@ function App() {
       <h1>Current Date</h1>
       <img src={plusIcon} className="plus-icon" alt="Add new task icon" />
       <WordForm addTask={addTask}/>              {/* Take in user input */}      
-      <TaskList tasks={tasks}/> {/* Generate task list */}
+      <TaskList tasks={tasks} deleteTask={deleteTask}/> {/* Generate task list */}
     </>
   )
 }
