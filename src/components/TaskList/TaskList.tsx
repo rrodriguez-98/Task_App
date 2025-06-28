@@ -1,6 +1,13 @@
-import React from 'react'
+// import React from 'react'
+type Task = {
+  taskTitle: string;
+};
 
-export default function TaskList({ tasks, deleteTask}) {
+type TaskListProps = {
+  tasks: Task[];
+  deleteTask: (taskTitle: string) => void;
+};
+export default function TaskList({ tasks, deleteTask}: TaskListProps) {
 
     let taskList = tasks.map(task =>
     <li>
