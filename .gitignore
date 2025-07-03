@@ -21,6 +21,7 @@ dist/
 .env.production.local
 .DS_Store
 MDB5-STANDARD-UI-KIT-Free-9.0.0
+planning_documents
 
 # Editor directories and files
 .vscode/*
