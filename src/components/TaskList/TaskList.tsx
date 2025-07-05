@@ -1,16 +1,30 @@
-// import React from 'react'
+
 type Task = {
   taskTitle: string;
+  taskCompleted: boolean;
 };
 
 type TaskListProps = {
   tasks: Task[];
   deleteTask: (taskTitle: string) => void;
+  completeTask: (taskTitle: string) => void;
 };
-export default function TaskList({ tasks, deleteTask}: TaskListProps) {
+export default function TaskList({ tasks, deleteTask, completeTask}: TaskListProps) {
 
     let taskList = tasks.map(task =>
     <li>
+      <span
+            className="complete-btn"
+            onClick={() => completeTask(task.taskTitle)}
+            style={{cursor: 'pointer', marginRight: '10px', color: 'black'}}
+        >
+            {task.taskCompleted && <span>
+              🗹
+            </span>}
+            {!task.taskCompleted && <span>
+              ☐
+            </span>}
+        </span>
       {task.taskTitle}
       <span 
             className="delete-btn" 
