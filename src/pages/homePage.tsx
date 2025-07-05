@@ -42,8 +42,16 @@ export default function HomePage() {
         <>
             <h1>{formattedDate}</h1>
             <img src={plusIcon} className="plus-icon" alt="Add new task icon" />
-            <WordForm addTask={addTask}/>              {/* Take in user input */}      
-            <TaskList tasks={tasks} deleteTask={deleteTask}/> Generate task list
+            <WordForm addTask={addTask}/>              {/* Take in user input */} 
+            <fieldset>
+              <legend>Catergory</legend>
+              <label htmlFor=""><input type="radio" name="filterTasksBy" defaultChecked={true} value="all"/>All</label>
+              <br/>
+              <label htmlFor=""><input type="radio" name="filterTasksBy" value="completed"/>Completed</label>
+              <br/>
+              <label htmlFor=""><input type="radio" name="filterTasksBy" value="incomplete"/>Incomplete</label>
+            </fieldset>     
+            <TaskList tasks={tasks} deleteTask={deleteTask}/>
         </>
     )
 }
