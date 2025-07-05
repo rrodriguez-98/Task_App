@@ -1,7 +1,8 @@
 // import React from 'react'
 import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
-import ContactPage from '../../pages/contactPage';
+
 import HomePage from '../../pages/homePage';
+import ContactPage from '../../pages/contactPage';
 
 export default function Header(){
   return (
@@ -27,15 +28,13 @@ export default function Header(){
 
     <BrowserRouter>
       <nav>
-        <Link to="/">Home</Link>
-        {/* <Link to="/about">TaskList</Link> */}
-        <Link to="/contact">Contact</Link>
+        <Link to="/Task_App/">Home</Link>
+        <Link to="/Task_App/contact">Contact</Link>
       </nav>
       
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        {/* <Route path="/about" element={<TaskList />} /> */}
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/Task_App/" element={<HomePage />} />
+        <Route path="/Task_App/contact" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
     
