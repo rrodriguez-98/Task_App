@@ -19,7 +19,6 @@ export default function WordForm({addTask}: WordFormProps) {
     setInputValue(''); // clear input
   } 
 
-
   return (
     <section className='input-form-container'>
         <form action="#" method='GET' onSubmit={handleSubmit}>

@@ -52,8 +52,6 @@ export default function HomePage() {
     setTasks(updatedTaskList);
   }
 
-  
-
   // Filter tasks based on selected filter
   const getFilteredTasks = (): Task[] => {
     switch(selectedFilter) {

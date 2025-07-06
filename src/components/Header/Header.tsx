@@ -1,13 +1,17 @@
 // import React from 'react'
-import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 
 import HomePage from '../../pages/homePage';
 import ContactPage from '../../pages/contactPage';
 
 export default function Header(){
+  const location = useLocation();
+
   return (
     <>
-    {/* <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    
+
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">Navbar</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,28 +19,19 @@ export default function Header(){
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
-              <a className="nav-link" href="#">Features</a>
-              <a className="nav-link" href="#">Pricing</a>
-              <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+              <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current={location.pathname === '/' ? 'page' : undefined} to="/Task_App/">Home</Link>
+              <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current={location.pathname === '/' ? 'page' : undefined} to="/Task_App/contact">Contact</Link>
             </div>
           </div>
         </div>
-      </nav> */}
-
-
-
-    <BrowserRouter>
-      <nav>
-        <Link to="/Task_App/">Home</Link>
-        <Link to="/Task_App/contact">Contact</Link>
       </nav>
+
       
       <Routes>
         <Route path="/Task_App/" element={<HomePage />} />
         <Route path="/Task_App/contact" element={<ContactPage />} />
       </Routes>
-    </BrowserRouter>
+    
     
     
     
