@@ -110,3 +110,50 @@ button:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   border: none;
 }
+
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  gap: 16px;
+  margin: 20px auto;
+  padding: 16px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.progress-bar {
+  flex: 1;
+  
+  height: 12px;
+  background: #e0f2fe;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar::-webkit-progress-bar {
+  background: #e0f2fe;
+  border-radius: 6px;
+}
+
+.progress-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, #38bdf8, #0284c7);
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.progress-bar::-moz-progress-bar {
+  background: linear-gradient(90deg, #38bdf8, #0284c7);
+  border-radius: 6px;
+}
+
+.progress-percentage {
+  font-weight: 600;
+  color: #0369a1;
+  font-size: 14px;
+  min-width: 45px;
+  text-align: right;
+}
