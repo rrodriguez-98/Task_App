@@ -84,19 +84,24 @@ export default function HomePage() {
                 <progress value={completedTasks} max={tasks.length} />
                 <span>{Math.round(percentage)}%</span>
             </div>
-            <img src={plusIcon} className="plus-icon" alt="Add new task icon" />
+            {/* <img src={plusIcon} className="plus-icon" alt="Add new task icon" /> */}
             <WordForm addTask={addTask}/>              {/* Take in user input */}
+              <section className="task-filter-container">
+                <section className="filter-container">
+                  <fieldset>
+                    <legend>Filter By: </legend>
+                    <label htmlFor=""><input type="radio" name="filterTasksBy" defaultChecked={true} value="all" checked={selectedFilter === 'all'} onChange={handleRadioChange}/>All ({tasks.length})</label>
+                    <br/>
+                    <label htmlFor=""><input type="radio" name="filterTasksBy" value="completed" checked={selectedFilter === 'completed'} onChange={handleRadioChange}/>Completed ({completedTasks})</label>
+                    <br/>
+                    <label htmlFor=""><input type="radio" name="filterTasksBy" value="incomplete" checked={selectedFilter === 'incomplete'} onChange={handleRadioChange}/>Incomplete ({tasks.length - completedTasks})</label>
+                  </fieldset>
+                </section>
+                <TaskList tasks={filteredTasks} deleteTask={deleteTask} completeTask={completeTask}/>
+              </section>
+              
           
-              <fieldset>
-              <legend>Catergory</legend>
-              <label htmlFor=""><input type="radio" name="filterTasksBy" defaultChecked={true} value="all" checked={selectedFilter === 'all'} onChange={handleRadioChange}/>All ({tasks.length})</label>
-              <br/>
-              <label htmlFor=""><input type="radio" name="filterTasksBy" value="completed" checked={selectedFilter === 'completed'} onChange={handleRadioChange}/>Completed ({completedTasks})</label>
-              <br/>
-              <label htmlFor=""><input type="radio" name="filterTasksBy" value="incomplete" checked={selectedFilter === 'incomplete'} onChange={handleRadioChange}/>Incomplete ({tasks.length - completedTasks})</label>
-            </fieldset>
-                 
-            <TaskList tasks={filteredTasks} deleteTask={deleteTask} completeTask={completeTask}/>
+            
         </>
     )
 }
