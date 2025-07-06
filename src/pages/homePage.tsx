@@ -18,6 +18,9 @@ export default function HomePage() {
     day: 'numeric',   // e.g., "29"
   });
 
+  // State for filter selection
+  const [selectedFilter, setSelectedFilter] = useState<string>('all');
+
   let [tasks, setTasks] = useState<Task[]>([
         {taskTitle: 'Wash dishes', taskCompleted: false},
         {taskTitle: 'Fold laundry', taskCompleted: false},
@@ -49,11 +52,32 @@ export default function HomePage() {
     setTasks(updatedTaskList);
   }
 
-  //Filter completed tasks
-  const completedTasks = tasks.filter(task => task.taskCompleted).length
+  
 
+  // Filter tasks based on selected filter
+  const getFilteredTasks = (): Task[] => {
+    switch(selectedFilter) {
+      case 'completed':
+        return tasks.filter(task => task.taskCompleted);
+      case 'incomplete':
+        return tasks.filter(task => !task.taskCompleted);
+      case 'all':
+      default:
+        return tasks;
+    }
+  };
+
+  // Get filtered tasks
+  const filteredTasks = getFilteredTasks();
+  //Filter completed tasks
+    const completedTasks = tasks.filter(task => task.taskCompleted).length;
   //Calculate percentage of completed tasks
-  const percentage = (completedTasks / tasks.length) * 100;
+  const percentage = tasks.length > 0 ? (completedTasks / tasks.length) * 100 : 0;
+
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedFilter(e.target.value);
+    console.log('Current filter:', e.target.value);
+  }
 
     return(
         <>
@@ -63,16 +87,18 @@ export default function HomePage() {
                 <span>{Math.round(percentage)}%</span>
             </div>
             <img src={plusIcon} className="plus-icon" alt="Add new task icon" />
-            <WordForm addTask={addTask}/>              {/* Take in user input */} 
-            <fieldset>
+            <WordForm addTask={addTask}/>              {/* Take in user input */}
+          
+              <fieldset>
               <legend>Catergory</legend>
-              <label htmlFor=""><input type="radio" name="filterTasksBy" defaultChecked={true} value="all"/>All</label>
+              <label htmlFor=""><input type="radio" name="filterTasksBy" defaultChecked={true} value="all" checked={selectedFilter === 'all'} onChange={handleRadioChange}/>All ({tasks.length})</label>
               <br/>
-              <label htmlFor=""><input type="radio" name="filterTasksBy" value="completed"/>Completed</label>
+              <label htmlFor=""><input type="radio" name="filterTasksBy" value="completed" checked={selectedFilter === 'completed'} onChange={handleRadioChange}/>Completed ({completedTasks})</label>
               <br/>
-              <label htmlFor=""><input type="radio" name="filterTasksBy" value="incomplete"/>Incomplete</label>
-            </fieldset>     
-            <TaskList tasks={tasks} deleteTask={deleteTask} completeTask={completeTask}/>
+              <label htmlFor=""><input type="radio" name="filterTasksBy" value="incomplete" checked={selectedFilter === 'incomplete'} onChange={handleRadioChange}/>Incomplete ({tasks.length - completedTasks})</label>
+            </fieldset>
+                 
+            <TaskList tasks={filteredTasks} deleteTask={deleteTask} completeTask={completeTask}/>
         </>
     )
 }
