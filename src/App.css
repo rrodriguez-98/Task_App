@@ -9,7 +9,7 @@
   z-index: 1000;
   margin: 0 auto;
   text-align: center;
-  /* background-color: #0284c7;  */
+  /*  background-color: #0284c7; */
   min-height: 100%;
   font-family: 'Inter', sans-serif;
   
@@ -145,13 +145,17 @@ button:hover {
   font-size: 1.25rem;
 }
 
+.task-list-container{
+  text-align: left;
+}
+
 .contact-header {
   margin-top: 5%;
 }
 
 .row {
   gap: 40px;
-  padding: 20px;
+  padding: 20px; 
 }
 
 .calendar-container {
@@ -161,7 +165,6 @@ button:hover {
 }
 
 .calendar{
-  /* background-color: hsl(201, 56%, 74%); */
   width: 60%;
   height: 50%;
   font-size: x-large;

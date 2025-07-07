@@ -12,7 +12,7 @@ type TaskListProps = {
 export default function TaskList({ tasks, deleteTask, completeTask}: TaskListProps) {
 
     let taskList = tasks.map(task =>
-    <li>
+    <li className="task-list-container">
       <span
             className="complete-btn"
             onClick={() => completeTask(task.taskTitle)}
