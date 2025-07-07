@@ -4,8 +4,6 @@ import WordForm from '../components/WordForm/WordForm'
 import TaskList from '../components/TaskList/TaskList'
 
 
-import plusIcon from '../assets/plus_icon.png'
-
 type Task = {
   taskTitle: string;
   taskCompleted: boolean;
