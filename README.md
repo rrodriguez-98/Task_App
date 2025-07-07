@@ -74,4 +74,6 @@ I wanted to develop a practical application that could handle adding tasks to a 
 
 Rebecca Rodriguez - rebecca.alia.rodriguez@gmail.com
 
+Project Link: [https://rrodriguez-98.github.io/Task_App/](https://rrodriguez-98.github.io/Task_App/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
