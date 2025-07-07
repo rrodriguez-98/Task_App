@@ -3,6 +3,7 @@ import { useState } from 'react'
 import WordForm from '../components/WordForm/WordForm'
 import TaskList from '../components/TaskList/TaskList'
 
+
 import plusIcon from '../assets/plus_icon.png'
 
 type Task = {
@@ -79,7 +80,7 @@ export default function HomePage() {
 
     return(
         <>
-            <h1>{formattedDate}</h1>
+            <h1 className="date-header">{formattedDate}</h1>
             <div className="progress-wrapper">
                 <progress className="progress-bar" value={completedTasks} max={tasks.length} />
                 <span className="progress-percentage">{Math.round(percentage)}%</span>

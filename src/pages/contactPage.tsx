@@ -1,7 +1,7 @@
 export default function ContactPage() {
     return(
         <>
-            <h1>Contact</h1>
+            <h1 className="contact-header">Contact</h1>
             <form action="" className="contact-form-container">
                 <div className="row">
                     <div className="col">
@@ -18,19 +18,6 @@ export default function ContactPage() {
                     <input type="text"  placeholder="Comment" />
                 </div>
                 <button>Submit</button>
-                {/* <label htmlFor=""> First Name
-                    <input type="text" />
-                </label>
-                <label htmlFor=""> Last Name
-                    <input type="text" />
-                </label>
-                <label htmlFor=""> Email
-                    <input type="email" />
-                </label>
-                <label htmlFor=""> Comment
-                    <input type="text" />
-                </label>
-                <button>Submit</button> */}
             </form>
         </>
     )

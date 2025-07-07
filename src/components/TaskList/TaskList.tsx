@@ -25,7 +25,10 @@ export default function TaskList({ tasks, deleteTask, completeTask}: TaskListPro
               ☐
             </span>}
         </span>
-      {task.taskTitle}
+        <span className="task-list">
+          {task.taskTitle}
+        </span>
+      
       <span 
             className="delete-btn" 
             onClick={() => deleteTask(task.taskTitle)}

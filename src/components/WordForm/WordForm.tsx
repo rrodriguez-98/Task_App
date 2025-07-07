@@ -25,7 +25,7 @@ export default function WordForm({addTask}: WordFormProps) {
   return (
     <section className='input-form-container'>
         <form action="#" method='GET' onSubmit={handleSubmit}>
-        <label htmlFor="">
+        <label htmlFor="" className="input-new-task">
             <input type="text" name="newTask" value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
            />

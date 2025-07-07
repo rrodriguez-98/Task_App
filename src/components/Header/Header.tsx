@@ -3,6 +3,7 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 
 import HomePage from '../../pages/homePage';
 import ContactPage from '../../pages/contactPage';
+import CalendarPage from '../../pages/calendarPage';
 
 export default function Header(){
   const location = useLocation();
@@ -18,8 +19,9 @@ export default function Header(){
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
+            <div className="navbar-nav custom-navbar-spacing">
               <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current={location.pathname === '/' ? 'page' : undefined} to="/Task_App/">Home</Link>
+              <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current={location.pathname === '/' ? 'page' : undefined} to="/Task_App/calendar">Calendar</Link>
               <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} aria-current={location.pathname === '/' ? 'page' : undefined} to="/Task_App/contact">Contact</Link>
             </div>
           </div>
@@ -29,6 +31,7 @@ export default function Header(){
       
       <Routes>
         <Route path="/Task_App/" element={<HomePage />} />
+        <Route path="/Task_App/calendar" element={<CalendarPage />} />
         <Route path="/Task_App/contact" element={<ContactPage />} />
       </Routes>
     
